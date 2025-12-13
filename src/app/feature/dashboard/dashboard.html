@@ -1,0 +1,40 @@
+@if(!loading()){
+  <div class="
+    flex 
+    items-center 
+    justify-center
+    flex-col
+    gap-2
+    py-6
+  ">
+    @if(users().length){
+      @for(user of users(); track $index) {
+        <app-card>
+          <div class="flex justify-between gap-4">
+            <div class="flex flex-col">
+              <span class="text-sm">
+                {{ user.name }}
+              </span>
+              <span class="text-xs">
+                {{ user.email }}
+              </span>
+              @if(user.company) {
+                <span class="text-xs font-light">
+                  {{ user.company.name }}
+                </span>
+              }
+            </div>
+            <app-button 
+              label="Ver detalhe"
+              (onClick)="showUserDetail(user)"
+            ></app-button>
+          </div>
+        </app-card>
+      }
+    } @else {
+      <app-empty-state></app-empty-state>
+    }
+  </div>
+} @else {
+  <app-loading></app-loading>
+}

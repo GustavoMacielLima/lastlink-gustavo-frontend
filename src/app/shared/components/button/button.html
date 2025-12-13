@@ -1,0 +1,27 @@
+<div class="w-full p-2">
+    <button
+        class="
+        px-4 
+        py-2 
+        rounded-lg 
+        border 
+        border-solid 
+        w-full 
+        font-bold 
+        disabled:opacity-50 
+        disabled:cursor-not-allowed
+        text-sm
+        "
+        [class.bg-blue-500]="style() === 'primary'"
+        [class.text-white]="style() === 'primary'"
+        [class.bg-white]="style() === 'secondary'"
+        [class.text-blue-500]="style() === 'secondary'"
+        [class.border-blue-500]="style() === 'secondary'"
+        [type]="type()"
+        (click)="action()"
+        [attr.aria-disabled]="isDisabled()"
+        [disabled]="isDisabled()"
+    >
+        {{label()}}
+    </button>
+</div>

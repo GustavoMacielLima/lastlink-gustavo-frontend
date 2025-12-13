@@ -1,0 +1,28 @@
+<app-card>
+    <div>
+        <span>Rua:</span>
+        <span>{{address().street}}</span>
+    </div>
+    <div>
+        <span>Complemento:</span>
+        <span>{{address().suite}}</span>
+    </div>
+    <div>
+        <span>Cidade:</span>
+        <span>{{address().city}}</span>
+    </div>
+    <div>
+        <span>Código Postal:</span>
+        <span>{{address().zipcode}}</span>
+    </div>
+    <div>
+        <div>
+            <span>Latidude:</span>
+            <span>{{address().geo?.lat}}</span>
+        </div>
+        <div>
+            <span>Longitude:</span>
+            <span>{{address().geo?.lng}}</span>
+        </div>
+    </div>
+</app-card>

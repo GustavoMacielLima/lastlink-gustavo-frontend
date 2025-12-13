@@ -1,0 +1,11 @@
+<div>
+    @if(user()){
+        <app-user-info [user]="user()!"></app-user-info>
+    }
+    @if(user()?.address){
+        <app-user-address [address]="user()!.address!"></app-user-address>
+    }
+    @if(user()?.company){
+        <app-user-company [company]="user()!.company!"></app-user-company>
+    }
+</div>

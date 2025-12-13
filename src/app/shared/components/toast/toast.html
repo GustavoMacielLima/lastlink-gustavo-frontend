@@ -1,0 +1,12 @@
+<div 
+    class="p-4 mb-4 rounded-lg cursor-pointer shadow-md"
+    [class.bg-green-100]="type() === 'success'"
+    [class.text-green-800]="type() === 'success'"
+    [class.bg-yellow-100]="type() === 'warning'"
+    [class.text-yellow-800]="type() === 'warning'"
+    [class.bg-red-100]="type() === 'error'"
+    [class.text-red-800]="type() === 'error'"
+    (click)="dismiss()"
+>
+    {{ message() }}
+</div>

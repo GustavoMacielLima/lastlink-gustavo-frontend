@@ -1,0 +1,9 @@
+<div class="fixed top-4 right-4 w-80 z-[1000]">
+    @for (toast of toasts$ | async; track toast.id) {
+        <app-toast
+            [id]="toast.id"
+            [type]="toast.type"
+            [message]="toast.message"
+        ></app-toast>
+    }
+</div>

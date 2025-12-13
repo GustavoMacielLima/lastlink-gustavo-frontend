@@ -1,0 +1,21 @@
+import { Routes } from '@angular/router';
+
+export const routes: Routes = [
+    {
+        path: '',
+        redirectTo: '/dashboard',
+        pathMatch: 'full'
+    },
+    {
+        path: 'dashboard',
+        loadComponent: () =>
+            import('./feature/dashboard/dashboard')
+                .then(m => m.Dashboard)
+    },
+    {
+        path: 'user',
+        loadComponent: () =>
+            import('./feature/user/user')
+                .then(m => m.User)
+    }
+];
