@@ -1,6 +1,7 @@
 <div class="pt-6 pl-6 pb-4 flex items-center w-full gap-8 justify-between">
   <h1 class="text-xl text-blue-500">Dashboard de Usuários</h1>
   <app-input 
+    data-cy="user-search-by-name"
     class="w-1/3 pr-6"
     placeholder="Pesquise pelo nome do usuário"
     [debounce]="400"
@@ -17,22 +18,23 @@
     p-6
   ">
     @for(user of userList(); track $index) {
-      <app-card>
+      <app-card data-cy="user-card">
         <div class="flex justify-between gap-4">
           <div class="flex flex-col">
-            <span class="text-sm">
+            <span data-cy="user-card-name" class="text-sm">
               {{ user.name }}
             </span>
-            <span class="text-xs">
+            <span data-cy="user-card-name" class="text-xs">
               {{ user.email }}
             </span>
             @if(user.company) {
-              <span class="text-xs font-light">
+              <span data-cy="user-card-name" class="text-xs font-light">
                 {{ user.company.name }}
               </span>
             }
           </div>
           <app-button 
+            data-cy="user-button-detail"
             label="Ver detalhe"
             (onClick)="showUserDetail(user)"
           ></app-button>
@@ -49,8 +51,8 @@
     gap-4
     p-6
   ">
-    <app-empty-state></app-empty-state>
+    <app-empty-state data-cy="user-empty-state"></app-empty-state>
   </div>
 } @else {
-  <app-loading></app-loading>
+  <app-loading data-cy="dashboard-loading"></app-loading>
 }
