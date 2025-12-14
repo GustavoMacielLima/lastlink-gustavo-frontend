@@ -1,0 +1,26 @@
+<div class="p-2 flex flex-col">
+  @if(label()){
+    <label class="pb-1 pl-1 font-bold text-sm">{{ label() }}</label>
+  }
+  <input
+    class="
+      border 
+      border-solid 
+      border-gray-300 
+      p-2 
+      rounded-lg 
+      text-gray-700 
+      focus:border-blue-500 
+      bg-white
+      focus:outline-none
+      [&[type='number']]:appearance-textfield
+      [&[type='number']::-webkit-outer-spin-button]:appearance-none
+      [&[type='number']::-webkit-inner-spin-button]:appearance-none
+    "
+    [type]="'text'"
+    [value]="value()"
+    [placeholder]="placeholder()"
+    (input)="handleInput($event)"
+    (blur)="handleBlur()"
+  />
+</div>

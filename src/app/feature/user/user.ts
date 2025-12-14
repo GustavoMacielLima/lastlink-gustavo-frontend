@@ -6,10 +6,11 @@ import { UserAddress } from './user-address/user-address';
 import { UserCompany } from './user-company/user-company';
 import { ToastService } from '../../shared/components/toast/toast.service';
 import { Router } from '@angular/router';
+import { Button } from '../../shared/components/button/button';
 
 @Component({
   selector: 'app-user',
-  imports: [UserInfo, UserAddress, UserCompany],
+  imports: [UserInfo, UserAddress, UserCompany, Button],
   templateUrl: './user.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -26,5 +27,9 @@ export class User implements OnInit {
       this.router.navigate(['dashboard']);
     }
     this.user.set(localStorage as UserResponse);
+  }
+
+  public backToDashboard(): void {
+    this.router.navigate(['dashboard']);
   }
 }

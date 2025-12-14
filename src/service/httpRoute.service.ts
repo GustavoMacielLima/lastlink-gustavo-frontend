@@ -1,11 +1,11 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { inject } from "@angular/core";
 import { catchError, map, Observable, of, take } from "rxjs";
+import { environment } from '../environments/environment';
 
 export class HttpRoute {
     private headers = new HttpHeaders()
-    private temporally: string = 'https://jsonplaceholder.typicode.com';
-    private route: string = `${this.temporally}`;
+    private route: string = environment.apiUrl;
     private http: HttpClient = inject(HttpClient);
 
     constructor(){}

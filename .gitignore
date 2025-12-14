@@ -41,3 +41,12 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Cypress
+cypress/videos/
+cypress/screenshots/
+
+# Environment files (se houver arquivos .env com informações sensíveis)
+# .env
+# .env.local
+# .env.*.local

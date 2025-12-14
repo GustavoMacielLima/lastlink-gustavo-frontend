@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, OnInit, Signal, signal, WritableSignal } from '@angular/core';
 import { UserResponse, UserService } from '../../../service/user.service';
 import { Card } from '../../shared/components/card/card';
 import { Button } from '../../shared/components/button/button';
@@ -7,10 +7,11 @@ import { Router } from '@angular/router';
 import { EmptyState } from '../../shared/components/empty-state/empty-state';
 import { Loading } from '../../shared/components/loading/loading';
 import { ToastService } from '../../shared/components/toast/toast.service';
+import { CustomInput } from '../../shared/components/input/input';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [Card, Button, EmptyState, Loading],
+  imports: [Card, Button, EmptyState, Loading, CustomInput],
   templateUrl: './dashboard.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -22,6 +23,12 @@ export class Dashboard implements OnInit {
   private router: Router = inject(Router);
   public users: WritableSignal<Array<UserResponse>> = signal<Array<UserResponse>>(new Array<UserResponse>());
   public loading: WritableSignal<boolean> =  signal<boolean>(false);
+  public searchText: WritableSignal<string> = signal<string>('');
+
+  public userList: Signal<Array<UserResponse>> = computed(() => {
+    return this.users().filter((user: UserResponse) => 
+      user.name.toLowerCase().indexOf(this.searchText().toLowerCase()) > -1);
+  });
 
   public async ngOnInit(): Promise<void> {
     this.loading.set(true);

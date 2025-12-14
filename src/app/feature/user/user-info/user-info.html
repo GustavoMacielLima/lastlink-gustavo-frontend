@@ -1,22 +1,25 @@
 <app-card>
-    <div>
-        <span>Nome:</span>
+    <div class="pb-4 text-blue-500 font-semibold">
+        <h2>Informações do Usuário</h2>
+    </div>
+    <div class="flex gap-2">
+        <span class="font-semibold">Nome:</span>
         <span>{{user().name}}</span>
     </div>
-    <div>
-        <span>Nome de Usuário:</span>
+    <div class="flex gap-2">
+        <span class="font-semibold">Nome de Usuário:</span>
         <span>{{user().username}}</span>
     </div>
-    <div>
-        <span>Email:</span>
+    <div class="flex gap-2">
+        <span class="font-semibold">Email:</span>
         <span>{{user().email}}</span>
     </div>
-    <div>
-        <span>Telefone:</span>
+    <div class="flex gap-2">
+        <span class="font-semibold">Telefone:</span>
         <span>{{user().phone}}</span>
     </div>
-    <div>
-        <span>Site:</span>
+    <div class="flex gap-2">
+        <span class="font-semibold">Site:</span>
         <span>{{user().website}}</span>
     </div>
 </app-card>

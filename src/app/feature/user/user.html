@@ -1,10 +1,20 @@
-<div>
-    @if(user()){
-        <app-user-info [user]="user()!"></app-user-info>
-    }
-    @if(user()?.address){
-        <app-user-address [address]="user()!.address!"></app-user-address>
-    }
+<div class="pt-6 pl-6 pb-4 flex items-center w-full gap-4">
+    <app-button
+        label="<"
+        [style]="'secondary'"
+        (onClick)="backToDashboard()"
+    ></app-button>
+    <h1 class="text-xl text-blue-500">Detalhes do Usuário</h1>
+</div>
+<div class="flex p-6 justify-center gap-6 flex-wrap">
+    <div class="flex flex-col gap-6">
+        @if(user()){
+            <app-user-info [user]="user()!"></app-user-info>
+        }
+        @if(user()?.address){
+            <app-user-address [address]="user()!.address!"></app-user-address>
+        }
+    </div>
     @if(user()?.company){
         <app-user-company [company]="user()!.company!"></app-user-company>
     }
