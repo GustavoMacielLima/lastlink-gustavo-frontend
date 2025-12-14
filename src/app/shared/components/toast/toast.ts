@@ -1,4 +1,3 @@
-// toast.component.ts
 import { ChangeDetectionStrategy, Component, inject, input, InputSignal } from '@angular/core';
 import { ToastType } from './toast.model';
 import { ToastService } from './toast.service';

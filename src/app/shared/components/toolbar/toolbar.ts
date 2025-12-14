@@ -16,7 +16,6 @@ export class Toolbar implements OnInit {
   public readonly isDarkMode = this.themeService.isDarkMode;
 
   constructor() {
-    // Garante que o componente detecte mudanças no signal
     effect(() => {
       this.isDarkMode();
       this.cdr.markForCheck();

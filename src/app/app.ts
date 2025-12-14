@@ -14,7 +14,5 @@ export class App implements OnInit {
   private readonly themeService = inject(ThemeService);
 
   ngOnInit(): void {
-    // Inicializa o tema ao carregar a aplicação
-    // O ThemeService já aplica o tema automaticamente via effect
   }
 }

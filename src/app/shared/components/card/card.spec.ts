@@ -31,7 +31,6 @@ describe('Card', () => {
   it('should have ng-content for content projection', () => {
     const cardElement = fixture.nativeElement.querySelector('div');
     expect(cardElement).toBeTruthy();
-    // O componente deve ter a estrutura para projeção de conteúdo
     expect(cardElement.innerHTML).toContain('');
   });
 });

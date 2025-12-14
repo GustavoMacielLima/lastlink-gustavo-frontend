@@ -12,16 +12,13 @@ export class ThemeService {
   private readonly platformId = inject(PLATFORM_ID);
   private readonly document = inject(DOCUMENT);
 
-  // Signal para o tema atual
   public readonly isDarkMode = signal<boolean>(this.getInitialTheme());
 
   constructor() {
-    // Aplica o tema inicial
     if (isPlatformBrowser(this.platformId)) {
       this.applyTheme(this.isDarkMode());
     }
 
-    // Efeito para aplicar o tema quando mudar
     effect(() => {
       const isDark = this.isDarkMode();
       if (isPlatformBrowser(this.platformId)) {
@@ -31,9 +28,6 @@ export class ThemeService {
     });
   }
 
-  /**
-   * Obtém o tema inicial do localStorage ou preferência do sistema
-   */
   private getInitialTheme(): boolean {
     if (!isPlatformBrowser(this.platformId)) {
       return false;
@@ -44,7 +38,6 @@ export class ThemeService {
       return savedTheme === this.DARK_THEME;
     }
 
-    // Verifica preferência do sistema
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       return true;
     }
@@ -52,29 +45,19 @@ export class ThemeService {
     return false;
   }
 
-  /**
-   * Alterna entre dark e light mode
-   */
   public toggleTheme(): void {
     const newValue = !this.isDarkMode();
     this.isDarkMode.set(newValue);
-    // Aplica imediatamente para garantir que funcione
     if (isPlatformBrowser(this.platformId)) {
       this.applyTheme(newValue);
       this.saveTheme(newValue);
     }
   }
 
-  /**
-   * Define o tema explicitamente
-   */
   public setTheme(isDark: boolean): void {
     this.isDarkMode.set(isDark);
   }
 
-  /**
-   * Aplica o tema no documento
-   */
   private applyTheme(isDark: boolean): void {
     if (!isPlatformBrowser(this.platformId)) {
       return;
@@ -87,13 +70,9 @@ export class ThemeService {
       htmlElement.classList.remove(this.DARK_THEME);
     }
     
-    // Força uma atualização do DOM para garantir que o Tailwind detecte a mudança
     htmlElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
   }
 
-  /**
-   * Salva o tema no localStorage
-   */
   private saveTheme(isDark: boolean): void {
     if (!isPlatformBrowser(this.platformId)) {
       return;

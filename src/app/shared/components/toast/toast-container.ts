@@ -1,4 +1,3 @@
-// toast-container.component.ts
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Toast } from './toast';
 import { ToastService } from './toast.service';

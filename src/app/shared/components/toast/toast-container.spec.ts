@@ -50,14 +50,12 @@ describe('ToastContainer', () => {
       { id: '2', type: 'error', message: 'Error message' }
     ];
     
-    // Adicionar toasts ao serviço
     mockToasts.forEach(toast => {
       toastService.show(toast.type, toast.message);
     });
     
     fixture.detectChanges();
     
-    // Aguardar um pouco para o Angular processar
     setTimeout(() => {
       fixture.detectChanges();
       const toastElements = fixture.nativeElement.querySelectorAll('app-toast');
@@ -68,7 +66,6 @@ describe('ToastContainer', () => {
   it('should not render toasts when array is empty', () => {
     fixture.detectChanges();
     const toastElements = fixture.nativeElement.querySelectorAll('app-toast');
-    // Inicialmente pode não haver toasts
     expect(toastElements.length).toBeGreaterThanOrEqual(0);
   });
 
@@ -76,7 +73,6 @@ describe('ToastContainer', () => {
     toastService.success('Test success message');
     fixture.detectChanges();
     
-    // Verificar se o container está presente
     const containerElement = fixture.nativeElement.querySelector('div');
     expect(containerElement).toBeTruthy();
   });
