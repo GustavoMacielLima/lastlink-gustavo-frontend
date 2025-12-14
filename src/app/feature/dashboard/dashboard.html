@@ -1,5 +1,5 @@
 <div class="pt-6 pl-6 pb-4 flex items-center w-full gap-8 justify-between">
-  <h1 class="text-xl text-blue-500">Dashboard de Usuários</h1>
+  <h1 class="text-xl text-blue-500 dark:bg-gradient-to-r dark:from-purple-400 dark:to-purple-600 dark:bg-clip-text dark:text-transparent">Dashboard de Usuários</h1>
   <app-input 
     data-cy="user-search-by-name"
     class="w-1/3 pr-6"
@@ -21,14 +21,14 @@
       <app-card data-cy="user-card">
         <div class="flex justify-between gap-4">
           <div class="flex flex-col">
-            <span data-cy="user-card-name" class="text-sm">
+            <span data-cy="user-card-name" class="text-sm text-gray-900 dark:text-white">
               {{ user.name }}
             </span>
-            <span data-cy="user-card-name" class="text-xs">
+            <span data-cy="user-card-name" class="text-xs text-gray-600 dark:text-gray-300">
               {{ user.email }}
             </span>
             @if(user.company) {
-              <span data-cy="user-card-name" class="text-xs font-light">
+              <span data-cy="user-card-name" class="text-xs font-light text-gray-500 dark:text-gray-400">
                 {{ user.company.name }}
               </span>
             }

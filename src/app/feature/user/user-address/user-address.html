@@ -1,31 +1,31 @@
 <app-card>
-    <div class="pb-4 text-blue-500 font-semibold">
+    <div class="pb-4 text-blue-500 dark:bg-gradient-to-r dark:from-purple-400 dark:to-purple-600 dark:bg-clip-text dark:text-transparent font-semibold">
         <h2>Endereço</h2>
     </div>
     <div class="flex gap-2">
-        <span class="font-semibold">Rua:</span>
-        <span>{{address().street}}</span>
+        <span class="font-semibold text-gray-900 dark:text-white">Rua:</span>
+        <span class="text-gray-700 dark:text-gray-300">{{address().street}}</span>
     </div>
     <div class="flex gap-2">
-        <span class="font-semibold">Complemento:</span>
-        <span>{{address().suite}}</span>
+        <span class="font-semibold text-gray-900 dark:text-white">Complemento:</span>
+        <span class="text-gray-700 dark:text-gray-300">{{address().suite}}</span>
     </div>
     <div class="flex gap-2">
-        <span class="font-semibold">Cidade:</span>
-        <span>{{address().city}}</span>
+        <span class="font-semibold text-gray-900 dark:text-white">Cidade:</span>
+        <span class="text-gray-700 dark:text-gray-300">{{address().city}}</span>
     </div>
     <div class="flex gap-2">
-        <span class="font-semibold">Código Postal:</span>
-        <span>{{address().zipcode}}</span>
+        <span class="font-semibold text-gray-900 dark:text-white">Código Postal:</span>
+        <span class="text-gray-700 dark:text-gray-300">{{address().zipcode}}</span>
     </div>
     <div class="flex gap-6">
         <div class="flex gap-2">
-        <span class="font-semibold">Latidude:</span>
-            <span>{{address().geo?.lat}}</span>
+        <span class="font-semibold text-gray-900 dark:text-white">Latidude:</span>
+            <span class="text-gray-700 dark:text-gray-300">{{address().geo?.lat}}</span>
         </div>
         <div class="flex gap-2">
-        <span class="font-semibold">Longitude:</span>
-            <span>{{address().geo?.lng}}</span>
+        <span class="font-semibold text-gray-900 dark:text-white">Longitude:</span>
+            <span class="text-gray-700 dark:text-gray-300">{{address().geo?.lng}}</span>
         </div>
     </div>
 </app-card>
