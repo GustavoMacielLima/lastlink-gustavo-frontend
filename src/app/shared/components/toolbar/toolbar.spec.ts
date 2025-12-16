@@ -21,10 +21,10 @@ describe('Toolbar', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render toolbar text', () => {
-    const spanElement = fixture.nativeElement.querySelector('span');
-    expect(spanElement).toBeTruthy();
-    expect(spanElement.textContent.trim()).toBe('Toolbar');
+  it('should render toolbar', () => {
+    const imgElement = fixture.nativeElement.querySelector('img');
+    expect(imgElement).toBeTruthy();
+    expect(imgElement.getAttribute('alt')).toBe('Logo');
   });
 
   it('should have correct styling classes', () => {
